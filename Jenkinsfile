@@ -11,11 +11,11 @@ pipeline {
                echo 'Building'
                
                //bat 'nuget restore PipelineProject/HMDOdysseyHome.sln'
-           	   bat "\"${tool 'Community'}MSBuild.exe\" HMDOdysseyHome.sln /p:Configuration=Release /p:Platform=\"x64\""
+           	   bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\HMDOdysseyHome.sln /p:Configuration=Release /p:Platform=\"x64\""
                
                 //msBuild {
                 //    msBuildInstallation('Community')
-               //     buildFile('PipelineProject/HMDOdysseyHome.sln')
+               //     buildFile('PipelineProject\HMDOdysseyHome.sln')
                //     args('Configuration=Release')
               //      args('Platform=x64')
                //     passBuildVariables()
