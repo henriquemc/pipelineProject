@@ -9,15 +9,15 @@ pipeline {
         stage('Build') {
            steps {
                echo 'Clean'
-               msbuild('Clean','Release','x64')
+               msbuild('Release','x64', 'Clean')
                
                echo 'Restore packages'
-               msbuild ('Restore','Release','x64')
+               msbuild ('Release','x64', 'Restore')
                               
                //bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln	/t:Restore /p:Configuration=Release /p:Platform=\"x64\""
                
                echo 'Building'
-               msbuild (null,'Release','x64')
+               msbuild ('Release','x64')
                
            	   //bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln /p:Configuration=Release /p:Platform=\"x64\""
                
@@ -60,9 +60,9 @@ pipeline {
     }
 }
 
-def msbuild(command, configuration, platform) {
+def msbuild(configuration, platform, command=null) {
     def param = command ? '' : '/t:${command}'
-    bat "${tool 'Community'}MSBuild.exe PipelineProject\\PipelineProject.sln ${command} /p:Configuration=${configuration} /p:Platform=\"${platform}\""
+    bat "${tool 'Community'}MSBuild.exe PipelineProject\\PipelineProject.sln ${param} /p:Configuration=${configuration} /p:Platform=\"${platform}\""
 }
 
 
