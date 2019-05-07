@@ -59,11 +59,9 @@ pipeline {
           }
       }
     }
+    
+    def RunMSBuild(configuration, platform, command=null) {
+        def param = command ? '' : "/t:${command}"
+        bat "${tool 'Community'}MSBuild.exe PipelineProject\\PipelineProject.sln ${param} /p:Configuration=${configuration} /p:Platform=\"${platform}\""
+    }
 }
-
-def RunMSBuild(configuration, platform, command=null) {
-    def param = command ? '' : "/t:${command}"
-    bat "${tool 'Community'}MSBuild.exe PipelineProject\\PipelineProject.sln ${param} /p:Configuration=${configuration} /p:Platform=\"${platform}\""
-}
-
-
