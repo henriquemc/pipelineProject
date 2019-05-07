@@ -14,12 +14,12 @@ pipeline {
                echo 'Restore packages'
                msbuild("Restore","Release", "x64")
                
-               bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln	/t:Restore /p:Configuration=Release /p:Platform=\"x64\""
+               //bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln	/t:Restore /p:Configuration=Release /p:Platform=\"x64\""
                
                echo 'Building'
-               msbuild("","Release", "x64")
+               msbuild(null, "Release", "x64")
                
-           	   bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln	 /p:Configuration=Release /p:Platform=\"x64\""
+           	   //bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln /p:Configuration=Release /p:Platform=\"x64\""
                
                 //msBuild {
                 //    msBuildInstallation('Community')
