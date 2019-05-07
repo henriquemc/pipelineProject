@@ -11,7 +11,7 @@ pipeline {
                echo 'Building'
                
                //bat 'nuget restore PipelineProject/HMDOdysseyHome.sln'
-           	   bat "\"${tool 'Community'}\MSBuild.exe \" PipelineProject/HMDOdysseyHome.sln /p:Configuration=Release /p:Platform=\"x64\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+           	   bat "\"${tool 'Community'}\\MSBuild.exe \" PipelineProject/HMDOdysseyHome.sln /p:Configuration=Release /p:Platform=\"x64\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
                
                 //msBuild {
                 //    msBuildInstallation('Community')
