@@ -10,7 +10,7 @@ pipeline {
            steps {
                echo 'Building'
                
-               //bat 'nuget restore PipelineProject/HMDOdysseyHome.sln'
+               bat 'nuget restore PipelineProject/HMDOdysseyHome.sln'
            	   bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln	 /p:Configuration=Release /p:Platform=\"x64\""
                
                 //msBuild {
