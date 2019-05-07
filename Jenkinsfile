@@ -29,7 +29,9 @@ pipeline {
       ///input message: "Do you want publish to production?"
       
       stage('Production') {
-        echo 'Building for production'
+          steps {
+            echo 'Building for production'
+          }
       }
       
       
