@@ -13,15 +13,17 @@ pipeline {
             }
         }
         stage('Test') {
-            parallel(
-              sourceAnalisys: {
+            steps {
+            //parallel(
+            //  sourceAnalisys: {
                       echo 'Running sonar'
-              }, 
-             integrationTests: {
-                  echo 'Running integration tests'
+           //   }, 
+           //  integrationTests: {
+          //        echo 'Running integration tests'
                   //runTests()
-             }
-            )
+          //   }
+          //  )
+            }
         }
       
       input message: "Do you want publish to production?"
