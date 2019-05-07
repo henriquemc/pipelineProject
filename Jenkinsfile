@@ -7,7 +7,7 @@ pipeline {
     }
     stages {
         stage('Build') {
-           
+           steps {
                 msBuild {
                     msBuildInstallation('Community')
                     buildFile('PipelineProject/HMDOdysseyHome.sln')
@@ -18,7 +18,7 @@ pipeline {
                     unstableIfWarnings(false)
                }
                 echo 'Building'
-            
+           }
         }
         stage('Test') {
             steps {
