@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                msbuild {
-                    msBuildInstallation('Community')
-                    buildFile('PipelineProject/HMDOdysseyHome.sln')
-                    args('Configuration=Release')
-                    args('Platform=x64')
-                    passBuildVariables()
-                    continueOnBuildFailure()
-                    unstableIfWarnings(false)
+               // msBuild {
+               //     msBuildInstallation('Community')
+               //     buildFile('PipelineProject/HMDOdysseyHome.sln')
+               //     args('Configuration=Release')
+               //     args('Platform=x64')
+               //     passBuildVariables()
+               //     continueOnBuildFailure()
+               //     unstableIfWarnings(false)
             }
                 echo 'Building'
             }
