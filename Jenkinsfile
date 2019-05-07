@@ -8,6 +8,10 @@ pipeline {
     stages {
         stage('Build') {
            steps {
+               
+               //bat 'nuget restore PipelineProject/HMDOdysseyHome.sln'
+           	   bat "\"${tool 'MSBuild'}\" PipelineProject/HMDOdysseyHome.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+               
                 msBuild {
                     msBuildInstallation('Community')
                     buildFile('PipelineProject/HMDOdysseyHome.sln')
