@@ -16,7 +16,7 @@ pipeline {
                //     passBuildVariables()
                //     continueOnBuildFailure()
                //     unstableIfWarnings(false)
-            }
+           // }
                 echo 'Building'
             }
         }
