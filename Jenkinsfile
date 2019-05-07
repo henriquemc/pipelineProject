@@ -8,7 +8,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                //sh 'npm install'
+                msBuild {
+                    msBuildInstallation('Community')
+                    buildFile('PipelineProject/HMDOdysseyHome.sln')
+                    args('Configuration=Release')
+                    args('Platform=x64')
+                    passBuildVariables()
+                    continueOnBuildFailure()
+                    unstableIfWarnings(false)
+            }
                 echo 'Building'
             }
         }
@@ -29,6 +37,9 @@ pipeline {
       ///input message: "Do you want publish to production?"
       
       stage('Production') {
+          when {
+                branch 'dev'
+          }
           steps {
             echo 'Building for production'
           }
@@ -37,3 +48,5 @@ pipeline {
       
     }
 }
+
+
