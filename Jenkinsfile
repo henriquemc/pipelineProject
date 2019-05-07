@@ -61,7 +61,7 @@ pipeline {
 }
 
 def msbuild(configuration, platform, command=null) {
-    def param = command ? '' : '/t:${command}'
+    def param = command ? '' : "/t:${command}"
     bat "${tool 'Community'}MSBuild.exe PipelineProject\\PipelineProject.sln ${param} /p:Configuration=${configuration} /p:Platform=\"${platform}\""
 }
 
