@@ -8,9 +8,14 @@ pipeline {
     stages {
         stage('Build') {
            steps {
+               echo 'Clean'
+               bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln	/t:Clean /p:Configuration=Release /p:Platform=\"x64\""
+               
+               echo 'Restore packages'
+               bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln	/t:Restore /p:Configuration=Release /p:Platform=\"x64\""
+               
                echo 'Building'
                
-               bat 'nuget restore PipelineProject/HMDOdysseyHome.sln'
            	   bat "\"${tool 'Community'}MSBuild.exe\" PipelineProject\\PipelineProject.sln	 /p:Configuration=Release /p:Platform=\"x64\""
                
                 //msBuild {
