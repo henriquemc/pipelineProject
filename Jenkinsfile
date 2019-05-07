@@ -9,28 +9,25 @@ pipeline {
         stage('Build') {
             steps {
                 //sh 'npm install'
-                echo 'Running sonar'
+                echo 'Building'
             }
         }
         stage('Test') {
             parallel(
               sourceAnalisys: {
-                  node {
                       echo 'Running sonar'
-                  }    
               }, 
-            integrationTests: {
+             integrationTests: {
                   echo 'Running integration tests'
                   //runTests()
-              }
+             }
             )
-          
         }
       
       input message: "Do you want publish to production?"
       
       stage('Production') {
-        
+        echo 'Building for production'
       }
       
       
