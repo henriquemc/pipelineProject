@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                msBuild {
+                msbuild {
                     msBuildInstallation('Community')
                     buildFile('PipelineProject/HMDOdysseyHome.sln')
                     args('Configuration=Release')
