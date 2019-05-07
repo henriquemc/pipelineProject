@@ -1,7 +1,7 @@
 #!groovy
 
 pipeline {
-    agent 'WindowsVM'
+    agent { label 'WindowsVM' }
     environment {
         CI = 'true'
     }
