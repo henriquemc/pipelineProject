@@ -21,6 +21,10 @@ node('WindowsVM') {
         stage('Test') {
           echo 'Running tests'
         }
+        
+        stage('Production') {
+          echo 'Deploy to production?'
+        }
     }
   }
 }
